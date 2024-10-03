@@ -121,11 +121,10 @@ function addVariableToURL(variableName, variableValue) {
 }
 
 async function getMoviesData(titles) {
-    const apiKey = 'ed83e91'; // Replace with your OMDB API key
     const results = [];
 
     for (let title of titles) {
-        const url = `http://www.omdbapi.com/?t=${encodeURIComponent(title)}&apikey=${apiKey}`;
+        const url = `http://www.omdbapi.com/?t=${encodeURIComponent(title)}&apikey=ed83e91`;
 
         try {
             const response = await fetch(url);
@@ -171,11 +170,14 @@ function parseNames(namesString) {
 }
 
 function getActorsHTML(list) {
-    arrayOfNames = parseNames(list)
     var html = ""
+    if(list != undefined) {
+        
+        arrayOfNames = parseNames(list)
 
-    for(var i=0;i<arrayOfNames.length;i++) {
-        html += '<div class="actor-Name">' + arrayOfNames[i] + '</div>'
+        for(var i=0;i<arrayOfNames.length;i++) {
+            html += '<div class="actor-Name">' + arrayOfNames[i] + '</div>'
+        }
     }
     
     return html
