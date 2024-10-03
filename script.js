@@ -121,10 +121,11 @@ function addVariableToURL(variableName, variableValue) {
 }
 
 async function getMoviesData(titles) {
+    const apiKey = 'ed83e91'; // Replace with your OMDB API key
     const results = [];
 
     for (let title of titles) {
-        const url = `http://www.omdbapi.com/?t=${encodeURIComponent(title)}&apikey=ed83e91`;
+        const url = `https://cors-anywhere.herokuapp.com/http://www.omdbapi.com/?t=${encodeURIComponent(title)}&apikey=${apiKey}`;
 
         try {
             const response = await fetch(url);
