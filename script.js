@@ -125,7 +125,8 @@ async function getMoviesData(titles) {
     const results = [];
 
     for (let title of titles) {
-        const url = `https://cors-anywhere.herokuapp.com/http://www.omdbapi.com/?t=${encodeURIComponent(title)}&apikey=${apiKey}`;
+        const url = `https://api.allorigins.win/get?url=${encodeURIComponent('http://www.omdbapi.com/?t=${encodeURIComponent(title)}&apikey=${apiKey}')}`;
+
 
         try {
             const response = await fetch(url);
